@@ -42,11 +42,7 @@ function useElementShouldClose(closeableEl, isOpen, handleClose) {
       document.body,
       'focus',
       event => {
-        // preact element or just a dom element?
-        const node = closeableEl.current.base
-          ? closeableEl.current.base
-          : closeableEl.current;
-        if (!node.contains(event.target)) {
+        if (!closeableEl.current.contains(event.target)) {
           handleClose();
         }
       },
@@ -59,11 +55,7 @@ function useElementShouldClose(closeableEl, isOpen, handleClose) {
       document.body,
       ['mousedown', 'click'],
       event => {
-        // preact element or just a dom element?
-        const node = closeableEl.current.base
-          ? closeableEl.current.base
-          : closeableEl.current;
-        if (!node.contains(event.target)) {
+        if (!closeableEl.current.contains(event.target)) {
           handleClose();
         }
       },
